@@ -8,12 +8,22 @@ public interface UserService {
   * */
 	boolean queryUsernameExist(String username);
 	/**
-	 * 注册用户
+	 * @注册用户
 	 */
 	void saveUser(Users user);
-	/***
-	 *验证账号密码 
+
+	/**
+	 * @param username
+	 * @param password  
+	 * @return 验证用户登录
 	 */
 	Users queryUser(String username, String password);
+	
+	
+	/**
+	 * @param user
+	 * @更新用户信息
+	 */
+	void updateUserInfo(Users user);
 
 }

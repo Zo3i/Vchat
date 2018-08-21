@@ -52,4 +52,13 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
+	@Override
+	public void updateUserInfo(Users user) {
+		// TODO Auto-generated method stub
+		Example userExample = new Example(Users.class);
+		Criteria criteria = userExample.createCriteria();
+		criteria.andEqualTo("id", user.getId());
+		usermapper.updateByExampleSelective(user, userExample);
+	}
+
 }
