@@ -1,4 +1,4 @@
-package com.jo.service;
+package com.jo.service.impl;
 
 import org.apache.catalina.User;
 import org.n3r.idworker.Sid;
@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.jo.mapper.UsersMapper;
 import com.jo.pojo.Users;
+import com.jo.service.UserService;
 
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
@@ -59,6 +60,16 @@ public class UserServiceImpl implements UserService {
 		Criteria criteria = userExample.createCriteria();
 		criteria.andEqualTo("id", user.getId());
 		usermapper.updateByExampleSelective(user, userExample);
+	}
+
+	@Override
+	public Users queryUserInfo(String userId) {
+		// TODO Auto-generated method stub
+		Example userExample = new Example(Users.class);
+		Criteria criteria = userExample.createCriteria();
+		criteria.andEqualTo("id", userId);
+		Users users = usermapper.selectOneByExample(userExample);
+		return users;
 	}
 
 }

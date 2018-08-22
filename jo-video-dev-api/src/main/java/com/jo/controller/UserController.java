@@ -8,6 +8,7 @@ import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jo.pojo.Users;
+import com.jo.pojo.vo.UsersVO;
 import com.jo.service.UserService;
 import com.jo.utils.JSONResult;
 
@@ -82,4 +84,19 @@ public class UserController extends BasicController{
 		userService.updateUserInfo(user);
 		return JSONResult.ok(uploadPathDB);
 	} 
+	@ApiOperation(value = "用户信息查询", notes = "查询信息接口")
+	@ApiImplicitParam(name = "userId", value = "用户Id", required = true, 
+					  dataType = "String", paramType = "query")
+	@PostMapping("/query")
+	public JSONResult query(String userId) {
+		
+		if(StringUtils.isBlank(userId)) {
+			return JSONResult.errorMsg("用户ID不能为空");
+		}
+		Users userInfo = userService.queryUserInfo(userId);
+		UsersVO userVo = new UsersVO();
+		BeanUtils.copyProperties(userInfo, userVo);
+		return JSONResult.ok(userVo);
+		
+	}
 }

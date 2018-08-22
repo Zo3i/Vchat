@@ -25,5 +25,6 @@ D:\Work\WorkSpace\jo-video-dev\jo-video-dev-common\src\main\java\org\n3r\idworke
 D:\Work\WorkSpace\jo-video-dev\jo-video-dev-common\src\main\java\org\n3r\idworker\utils\Serializes.java
 D:\Work\WorkSpace\jo-video-dev\jo-video-dev-common\src\main\java\org\n3r\idworker\WorkerIdStrategy.java
 D:\Work\WorkSpace\jo-video-dev\jo-video-dev-common\src\main\java\org\n3r\idworker\strategy\DefaultRandomCodeStrategy.java
+D:\Work\WorkSpace\jo-video-dev\jo-video-dev-common\src\main\java\com\jo\enums\VideoStatusEnum.java
 D:\Work\WorkSpace\jo-video-dev\jo-video-dev-common\src\main\java\com\jo\utils\JsonUtils.java
 D:\Work\WorkSpace\jo-video-dev\jo-video-dev-common\src\main\java\org\n3r\idworker\Code.java

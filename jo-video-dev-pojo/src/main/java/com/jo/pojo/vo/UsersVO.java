@@ -2,6 +2,8 @@ package com.jo.pojo.vo;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -24,6 +26,7 @@ public class UsersVO {
     /**
      * 密码
      */
+    @JsonIgnore
     @ApiModelProperty(value="密码", name="passwer", example = "123456", required=true)
     private String password;
 

@@ -22,10 +22,10 @@ public class MergeVideoMp3 {
 		command.add(ffmpegEXE);
 		
 		command.add("-i");
-		command.add(videoInputPath);
+		command.add(mp3InputPath);
 		
 		command.add("-i");
-		command.add(mp3InputPath);
+		command.add(videoInputPath);
 		
 		command.add("-t");
 		command.add(String.valueOf(seconds));

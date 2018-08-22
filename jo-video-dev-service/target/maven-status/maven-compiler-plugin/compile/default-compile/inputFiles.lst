@@ -1,2 +1,6 @@
 D:\Work\WorkSpace\jo-video-dev\jo-video-dev-service\src\main\java\com\jo\service\UserService.java
-D:\Work\WorkSpace\jo-video-dev\jo-video-dev-service\src\main\java\com\jo\service\UserServiceImpl.java
+D:\Work\WorkSpace\jo-video-dev\jo-video-dev-service\src\main\java\com\jo\service\BgmService.java
+D:\Work\WorkSpace\jo-video-dev\jo-video-dev-service\src\main\java\com\jo\service\impl\BgmServiceImpl.java
+D:\Work\WorkSpace\jo-video-dev\jo-video-dev-service\src\main\java\com\jo\service\impl\VideoServiceImpl.java
+D:\Work\WorkSpace\jo-video-dev\jo-video-dev-service\src\main\java\com\jo\service\impl\UserServiceImpl.java
+D:\Work\WorkSpace\jo-video-dev\jo-video-dev-service\src\main\java\com\jo\service\VideoService.java
