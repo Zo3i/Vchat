@@ -41,7 +41,7 @@ public class VideoServiceImpl implements VideoService {
 	@Override
 	public String saveVideo(Videos video) {
 		// TODO Auto-generated method stub
-		String id = sid.nextShort();
+		String id = sid.nextShort(); 
 		video.setId(id);
 		videoMapper.insertSelective(video);
 		return id;
