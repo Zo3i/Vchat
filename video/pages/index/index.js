@@ -1,54 +1,88 @@
-//index.js
-//获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    // 用于分页的属性
+    totalPage: 1,
+    page:1,
+    videoList:[],
+    currentPage:1,
+
+    screenWidth: 350,
+    serverUrl: "",
+
+    searchContent: ""
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+    var me = this;
+    var screenWidth = wx.getSystemInfoSync();
+    me.setData({
+      screenWidth: screenWidth
+    });
+    //获取当前页数
+    var page = me.data.page
+    me.getVideoList(page);
+  },
+  //上拉刷新
+  onReachBottom: function () {
+    var me = this;
+    var currentPage = me.data.page;
+    var totlePage = me.data.totalPage;
+    console.log("总页数:"+totlePage)
+    //判断当前的页数是否达到总页数
+    if (currentPage == totlePage) {
+      wx.showToast({
+        title: '已经没有视频了...',
+        icon: "none",
+        duration: 2500
       })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+    } else{
+      var page = currentPage + 1;
+      me.getVideoList(page);
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+  //下拉刷新
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading();
+    this.getVideoList(1);
+  },
+  //获取视频API
+  getVideoList: function (page) {
+    var me = this;
+    console.log("currentPage" + me.data.page)
+    var serverUrl = app.serverUrl
+    wx.showLoading({
+      title: '请等待...',
+    });
+
+    wx.request({
+      url: serverUrl + '/video/showAll?page=' + page,
+      method: "post",
+      success: function (res) {
+        wx.hideLoading();
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+        console.log(res.data);
+        //判断当前页面是否为首页,如果为首页则清空
+        if (page == 1) {
+          me.setData({
+            videoList: []
+          })
+        }
+        var videoList = res.data.data.rows;
+        var newVideoList = me.data.videoList;
+        var total = res.data.data.total;
+        me.setData({
+          videoList: newVideoList.concat(videoList),
+          page: page,
+          totalPage: total,
+          serverUrl: serverUrl
+        })
+      }
     })
-  }
+  },
+
+
+
+
 })

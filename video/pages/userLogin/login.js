@@ -16,6 +16,10 @@ Page({
             duration: 3000
           })
         } else {
+          wx.showLoading({
+            title: '请等待....',
+          })
+          //调用后端判断
           var serverUrl = app.serverUrl;
           wx.request({
             url: serverUrl + '/login',
@@ -28,7 +32,7 @@ Page({
               'content-type': 'application/json'//默认值
             },
             success: function(res) {
-              console.log(res.data)
+              wx.hideLoading()
               var status = res.data.status;
               //登录成功
               if (status == 200) {
@@ -37,9 +41,13 @@ Page({
                   icon: "success",
                   duration: 2000
                 })
-                app.userInfo = res.data.data;
+                // app.userInfo = res.data.data;
+                //fix 修改原有的全局对象为本地缓存
+                app.setGloableUserInfo(res.data.data);
                 //todu页面跳转
-
+              wx.navigateTo({
+                url: '../mine/mine',
+              })
               } else if (status == 500) {
                   wx.showToast({
                     title: res.data.msg,
@@ -47,15 +55,18 @@ Page({
                     duration: 3000
                   })
               } else {
-
+                wx.showToast({
+                  title: "未知错误请联系管理员",
+                  icon: "none",
+                  duration: 3000
+                })
               }
-
             }
           })
         }
       },
       resetBtn () {
-        wx.redirectTo({
+        wx.navigateTo({
           url: "../userRegist/regist"
         })
       },

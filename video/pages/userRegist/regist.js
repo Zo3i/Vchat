@@ -16,6 +16,10 @@ Page({
             duration: 3000
           })
         } else {
+          //调用后端
+          wx.showLoading({
+            title: '请等待....',
+          })
           var serverUrl = app.serverUrl;
           wx.request({
             url: serverUrl + '/regist',
@@ -28,6 +32,7 @@ Page({
               'content-type': 'application/json'//默认值
             },
             success: function(res) {
+              wx.hideLoading()
               console.log(res.data)
               var status = res.data.status;
               if (status == 200) {
@@ -36,12 +41,12 @@ Page({
                   icon: "none",
                   duration: 3000
                 })
-                app.userInfo = res.data.data;
-                console.log(app.userInfo)
+                //fix 修改原有的全局对象为本地缓存
+                app.setGloableUserInfo(res.data.data);
                 //注册完跳转到登陆界面
-                wx.redirectTo({
+                wx.navigateTo({
                   url: '../userLogin/login?username=' + res.data.data.username,
-                })
+                }) 
               } else if (status == 500) {
                   wx.showToast({
                     title: res.data.msg,
