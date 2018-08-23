@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.UUID;
 
+import com.jo.utils.FetchVideoCover;
+import com.jo.utils.PagedResult;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +72,7 @@ public class VideoController extends BasicController{
 		}
 		//数据库保存路径
 		String uploadPathDB = "/" + userId + "/video";
+		String coverPathDB = "/" + userId + "/video";
 		FileOutputStream fileOutputStream = null;
 		InputStream inputStream = null;
 		//文件的最终保存路径
@@ -77,10 +80,12 @@ public class VideoController extends BasicController{
 		try {
 			if (file != null) {
 				String fileName = file.getOriginalFilename();
+				String fileNamePre = fileName.split("\\.")[0];
 				if (StringUtils.isNotBlank(fileName)) {
 					finalVideoPath = FILE_SAVE_lOCATION + uploadPathDB + "/" + fileName;
 					//设置数据库保存路径
 					uploadPathDB += ("/" + fileName);
+					coverPathDB += "/" + fileNamePre + ".jpg";
 					File outFile = new File(finalVideoPath);
 					if (outFile.getParentFile() != null || !outFile.getParentFile().isDirectory()) {
 						//创建父文件夹
@@ -115,6 +120,10 @@ public class VideoController extends BasicController{
 			tool.convertor(videoInputPath, mp3InputPath, videoSeconds, finalVideoPath);
 			
 		}
+
+		//视频截图
+		FetchVideoCover videoInfo = new FetchVideoCover(FFMPEG_EXE);
+		videoInfo.getCover(finalVideoPath, FILE_SAVE_lOCATION + coverPathDB);
 		
 		//保存视频信息到数据库
 		Videos video = new Videos();
@@ -125,6 +134,7 @@ public class VideoController extends BasicController{
 		video.setVideoHeight(videoHeight);
 		video.setVideoWidth(videoWidth);
 		video.setVideoPath(uploadPathDB);
+		video.setCoverPath(coverPathDB);
 		video.setStatus(VideoStatusEnum.SUCCESS.value);
 		video.setCreateTime(new Date());
 		String videoId = videoService.saveVideo(video);
@@ -186,5 +196,14 @@ public class VideoController extends BasicController{
 		System.out.println(uploadPathDB);
 		videoService.updateVideo(videoId, uploadPathDB);
 		return JSONResult.ok();
-	} 
+	}
+
+	@PostMapping(value = "/showAll")
+	public JSONResult showAll(Integer page) {
+		if (page == null) {
+			page = 1;
+		}
+		PagedResult result = videoService.getAllVideos(page, PAGE_SIZE);
+		return JSONResult.ok(result);
+	}
 }

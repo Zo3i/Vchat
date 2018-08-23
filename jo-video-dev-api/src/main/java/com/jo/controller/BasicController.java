@@ -16,4 +16,8 @@ public class BasicController {
 	public static final String FILE_SAVE_lOCATION = "E:/WeixinApp/userFile"; 
 	//ffmpeg
 	public static final String FFMPEG_EXE = "E:/WeixinApp/userFile/ffmpeg/bin/ffmpeg.exe";
+
+	//默认获取视频数量
+
+	public static final Integer PAGE_SIZE = 5;
 }

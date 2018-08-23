@@ -2,6 +2,11 @@ package com.jo.service.impl;
 
 import java.util.List;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.jo.mapper.VideosMapperCustom;
+import com.jo.pojo.vo.VideosVo;
+import com.jo.utils.PagedResult;
 import org.apache.catalina.User;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +33,8 @@ public class VideoServiceImpl implements VideoService {
 	@Autowired
 	private VideosMapper videoMapper;
 	@Autowired
+	private VideosMapperCustom videosMapperCustom;
+	@Autowired
 	private Sid sid;
 	
 	@Transactional(propagation = Propagation.REQUIRED)
@@ -50,6 +57,26 @@ public class VideoServiceImpl implements VideoService {
 		video.setCoverPath(coverPath);
 		videoMapper.updateByPrimaryKeySelective(video);
 		
+	}
+	/**
+	 * @Desciption: 获取视频列表
+	 * @version:v-1.00
+	 * @return: PagedResult
+	 * @author:张琪灵
+	 */
+	@Override
+	public PagedResult getAllVideos(Integer page, Integer pageSize) {
+
+		PageHelper.startPage(page, pageSize);
+		List<VideosVo> list = videosMapperCustom.queryAllVideos();
+		PageInfo<VideosVo> pageList = new PageInfo<>(list);
+
+		PagedResult pagedResult = new PagedResult();
+		pagedResult.setPage(page);
+		pagedResult.setTotal(pageList.getPages());
+		pagedResult.setRows(list);
+		pagedResult.setRecords(pageList.getTotal());
+		return pagedResult;
 	}
 
 }
