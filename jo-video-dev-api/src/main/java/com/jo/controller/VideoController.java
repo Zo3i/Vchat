@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import com.jo.utils.FetchVideoCover;
@@ -11,10 +12,7 @@ import com.jo.utils.PagedResult;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jo.enums.VideoStatusEnum;
@@ -79,8 +77,9 @@ public class VideoController extends BasicController{
 		String finalVideoPath = "";
 		try {
 			if (file != null) {
+				System.out.println("图片名字"+file.getOriginalFilename());
 				String fileName = file.getOriginalFilename();
-				String fileNamePre = fileName.split("\\.")[0];
+				String fileNamePre = fileName.split("\\.")[2];
 				if (StringUtils.isNotBlank(fileName)) {
 					finalVideoPath = FILE_SAVE_lOCATION + uploadPathDB + "/" + fileName;
 					//设置数据库保存路径
@@ -198,12 +197,27 @@ public class VideoController extends BasicController{
 		return JSONResult.ok();
 	}
 
+	/**
+	 * @Desciption:分页查询和搜索查询
+	 * isSave: 1,需要保存 0不需要保存
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	@ApiOperation(value = "分页查询,搜索查询", notes = "视频查询接口")
 	@PostMapping(value = "/showAll")
-	public JSONResult showAll(Integer page) {
+	public JSONResult showAll(@RequestBody Videos video, Integer isSave,
+							  Integer page) {
 		if (page == null) {
 			page = 1;
 		}
-		PagedResult result = videoService.getAllVideos(page, PAGE_SIZE);
+		PagedResult result = videoService.getAllVideos(video, isSave, page, PAGE_SIZE);
 		return JSONResult.ok(result);
+	}
+
+	@PostMapping(value = "/hot")
+	public JSONResult hot() {
+		List<String> list = videoService.getHotWords();
+		return JSONResult.ok(list);
 	}
 }

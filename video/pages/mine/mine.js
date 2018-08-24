@@ -19,11 +19,12 @@ Page({
     wx.request({
       url: serverUrl + '/user/query?userId=' + user.id,
       method: "POST",
-      herder:{
-        'content-type' : 'application/json'
+      header:{
+        'content-type' : 'application/json',
+        "userId": user.id,
+        "userToken": user.userToken
       },
       success: function (res) {
-        console.log(res.data)
         wx.hideLoading();
         if(res.data.status == 200) {
           var userInfo = res.data.data;
@@ -42,6 +43,13 @@ Page({
             receiveLikeCounts: userInfo.receiveLikeCounts,
             //用户昵称
             nickname: userInfo.nickname
+          })
+        } else if (res.data.status == 500){
+          console.log(res)
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
           })
         }
       }
@@ -125,40 +133,41 @@ Page({
     })
   },
   uploadVideo: function () {
-    var me = this
-    wx.chooseVideo({
-      sourceType: ['album'],
-      success: function (res) {
-        console.log(res)
-        var duration = res.duration
-        var height = res.height
-        var width = res.width
-        var tempVideoUrl = res.tempFilePath
-        var tempCoverUrl = res.thumbTempFilePath
+    videoUtil.uplodaVideo()
+  //   var me = this
+  //   wx.chooseVideo({
+  //     sourceType: ['album'],
+  //     success: function (res) {
+  //       console.log(res)
+  //       var duration = res.duration
+  //       var height = res.height
+  //       var width = res.width
+  //       var tempVideoUrl = res.tempFilePath
+  //       var tempCoverUrl = res.thumbTempFilePath
 
-        if (duration > 110000) {
-          wx.showToast({
-            title: '视频长度不能超过10秒',
-            icon: "none",
-            duration: 2500
-          })
-        } else if (duration < 1) {
-          wx.showToast({
-            title: '视频长度太短啦~',
-            icon: "none",
-            duration: 2500
-          })
-        } else {
-          console.log("跳转")
-          wx.navigateTo({
-            url: '../chooseBgm/chooseBgm?duration=' + duration
-              + '&height=' + height
-              + '&width=' + width
-              + '&tempVideoUrl=' + tempVideoUrl
-              + '&tempCoverUrl=' + tempCoverUrl
-          })
-        }
-      }
-    })
-  }
+  //       if (duration > 110000) {
+  //         wx.showToast({
+  //           title: '视频长度不能超过10秒',
+  //           icon: "none",
+  //           duration: 2500
+  //         })
+  //       } else if (duration < 1) {
+  //         wx.showToast({
+  //           title: '视频长度太短啦~',
+  //           icon: "none",
+  //           duration: 2500
+  //         })
+  //       } else {
+  //         console.log("跳转")
+  //         wx.navigateTo({
+  //           url: '../chooseBgm/chooseBgm?duration=' + duration
+  //             + '&height=' + height
+  //             + '&width=' + width
+  //             + '&tempVideoUrl=' + tempVideoUrl
+  //             + '&tempCoverUrl=' + tempCoverUrl
+  //         })
+  //       }
+  //     }
+  //   })
+   }
 })

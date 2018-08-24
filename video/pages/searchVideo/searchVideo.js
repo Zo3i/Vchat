@@ -24,7 +24,6 @@ Page({
         WxSearch.init(
           that,  // 本页面一个引用
           hotList,
-          // ['慕课网', 'imooc', "java", "小程序", 'zookeeper', 'springboot'], // 热点搜索推荐，[]表示不使用
           hotList,// 搜索匹配，[]表示不使用
           that.mySearchFunction, // 提供一个搜索回调函数
           that.myGobackFunction //提供一个返回回调函数
@@ -46,10 +45,8 @@ Page({
 
   // 4 搜索回调函数  
   mySearchFunction: function (value) {
-    // do your job here
-    // 示例：跳转
     wx.redirectTo({
-      url: '../index/index?isSaveRecord=1&search=' + value
+      url: '../index/index?isSave=1&search=' + value
     })
   },
 

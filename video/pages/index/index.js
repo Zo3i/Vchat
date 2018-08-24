@@ -10,18 +10,29 @@ Page({
 
     screenWidth: 350,
     serverUrl: "",
-
-    searchContent: ""
+    seachContent: ""
   },
-  onLoad: function () {
+  onLoad: function (params) {
     var me = this;
-    var screenWidth = wx.getSystemInfoSync();
+    console.log("手屏幕宽度" + wx.getSystemInfoSync().windowWidth)
+    var screenWidth = wx.getSystemInfoSync().windowWidth;
     me.setData({
       screenWidth: screenWidth
     });
+    //搜索结果
+    var seachContent = params.search;
+    me.setData({
+      seachContent: seachContent
+    })
+    console.log(params)
+    var isSave = params.isSave;
+    if (isSave == null || isSave == "" || isSave == undefined) {
+      isSave = 0;
+    }
+
     //获取当前页数
     var page = me.data.page
-    me.getVideoList(page);
+    me.getVideoList(page, isSave);
   },
   //上拉刷新
   onReachBottom: function () {
@@ -38,26 +49,32 @@ Page({
       })
     } else{
       var page = currentPage + 1;
-      me.getVideoList(page);
+      me.getVideoList(page, 0);
     }
   },
   //下拉刷新
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading();
-    this.getVideoList(1);
+    this.getVideoList(1, 0);
   },
   //获取视频API
-  getVideoList: function (page) {
+  getVideoList: function (page, isSave) {
     var me = this;
     console.log("currentPage" + me.data.page)
     var serverUrl = app.serverUrl
+    //获取热搜词
+    var seachContent = me.data.seachContent;
     wx.showLoading({
       title: '请等待...',
     });
 
     wx.request({
-      url: serverUrl + '/video/showAll?page=' + page,
+      url: serverUrl + '/video/showAll?page=' + page 
+                     + "&isSave=" + isSave,
       method: "post",
+      data: {
+        videoDesc: seachContent
+      },
       success: function (res) {
         wx.hideLoading();
         wx.hideNavigationBarLoading();
@@ -81,7 +98,17 @@ Page({
       }
     })
   },
-
+//跳转到视频播放
+  showVideoInfo: function (e) {
+    var me = this;
+    var videoList = me.data.videoList
+    var videoIndex = e.target.dataset.arrindex;
+    console.log(videoIndex)
+    var videoInfo = JSON.stringify(videoList[videoIndex])
+    wx.navigateTo({
+      url: '../videoInfo/videoInfo?videoInfo=' + videoInfo,
+    })
+  }
 
 
 

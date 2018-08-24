@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.jo.mapper.VideosMapperCustom;
+import com.jo.mapper.*;
+import com.jo.pojo.SearchRecords;
 import com.jo.pojo.vo.VideosVo;
 import com.jo.utils.PagedResult;
 import org.apache.catalina.User;
@@ -14,9 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jo.mapper.BgmMapper;
-import com.jo.mapper.UsersMapper;
-import com.jo.mapper.VideosMapper;
 import com.jo.pojo.Bgm;
 import com.jo.pojo.Users;
 import com.jo.pojo.Videos;
@@ -34,6 +32,8 @@ public class VideoServiceImpl implements VideoService {
 	private VideosMapper videoMapper;
 	@Autowired
 	private VideosMapperCustom videosMapperCustom;
+	@Autowired
+	private SearchRecordsMapper searchRecordsMapper;
 	@Autowired
 	private Sid sid;
 	
@@ -64,11 +64,23 @@ public class VideoServiceImpl implements VideoService {
 	 * @return: PagedResult
 	 * @author:张琪灵
 	 */
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
-	public PagedResult getAllVideos(Integer page, Integer pageSize) {
+	public PagedResult getAllVideos(Videos video, Integer isSave,
+									Integer page, Integer pageSize) {
+
+		//保存热搜词
+		String desc = video.getVideoDesc();
+		if (isSave != null && isSave == 1) {
+			SearchRecords records = new SearchRecords();
+			String recordId = sid.nextShort();
+			records.setId(recordId);
+			records.setContent(desc);
+			searchRecordsMapper.insert(records);
+		}
 
 		PageHelper.startPage(page, pageSize);
-		List<VideosVo> list = videosMapperCustom.queryAllVideos();
+		List<VideosVo> list = videosMapperCustom.queryAllVideos(desc);
 		PageInfo<VideosVo> pageList = new PageInfo<>(list);
 
 		PagedResult pagedResult = new PagedResult();
@@ -77,6 +89,12 @@ public class VideoServiceImpl implements VideoService {
 		pagedResult.setRows(list);
 		pagedResult.setRecords(pageList.getTotal());
 		return pagedResult;
+	}
+
+	@Transactional(propagation = Propagation.SUPPORTS)
+	@Override
+	public List<String> getHotWords() {
+		return searchRecordsMapper.getHotWords();
 	}
 
 }

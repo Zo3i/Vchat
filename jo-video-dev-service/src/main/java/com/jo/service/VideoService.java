@@ -27,5 +27,13 @@ public interface VideoService {
 	 * @return: getAllVideos
 	 * @author:张琪灵
 	 */
-	PagedResult getAllVideos(Integer page, Integer pageSize);
+	PagedResult getAllVideos(Videos video, Integer isSave, Integer page, Integer pageSize);
+
+	/**
+	 * @Desciption: 获取热搜词
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	List<String> getHotWords();
 }
