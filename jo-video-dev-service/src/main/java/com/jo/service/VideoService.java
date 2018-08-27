@@ -5,6 +5,7 @@ import java.util.List;
 import com.jo.pojo.Bgm;
 import com.jo.pojo.Users;
 import com.jo.pojo.Videos;
+import com.jo.pojo.vo.VideosVo;
 import com.jo.utils.PagedResult;
 
 public interface VideoService {
@@ -36,4 +37,20 @@ public interface VideoService {
 	 * @author:张琪灵
 	 */
 	List<String> getHotWords();
+	/**
+	 * @Desciption:用户点赞
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	void userLikeVideo(String userId, String VideoId, String videoCreaterId);
+	/**
+	 * @Desciption:用户取消点赞
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	void userDislikeVideo(String userId, String VideoId, String videoCreaterId);
+	PagedResult queryLikeVideos(String userId, Integer page, Integer pageSize);
+
 }

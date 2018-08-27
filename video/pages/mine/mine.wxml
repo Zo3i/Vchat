@@ -19,7 +19,7 @@
         <button size='mini' type='' class='follow' data-followType='0' bindtap='followMe'>已关注</button>
       </block>
       <block wx:if="{{!isFollow}}">
-        <button size='mini' type='primary' class='follow' data-followType='1' bindtap='followMe'>关注我</button>
+        <button size='mini' type='primary' class='follow' data-followType='1' bindtap='followMe'>关注</button>
       </block>
 
     </block>
@@ -46,19 +46,19 @@
 
 <view class='container-video-list'>
 
-<view hidden='{{myWorkFalg}}'>
+<view hidden='{{myWorkFlag}}'>
     <block wx:for="{{myVideoList}}" >
         <image src='{{serverUrl}}{{item.coverPath}}' class='videoImage' mode="aspectFill" bindtap='showVideo' data-arrindex='{{index}}'></image>
     </block>
 </view>
 
-<view hidden='{{myLikesFalg}}'>
+<view hidden='{{myLikesFlag}}'>
     <block wx:for="{{likeVideoList}}" >
         <image src='{{serverUrl}}{{item.coverPath}}' class='videoImage' mode="aspectFill" bindtap='showVideo' data-arrindex='{{index}}'></image>
     </block>
 </view>
 
-<view hidden='{{myFollowFalg}}'>
+<view hidden='{{myFollowFlag}}'>
     <block wx:for="{{followVideoList}}" >
         <image src='{{serverUrl}}{{item.coverPath}}' class='videoImage' mode="aspectFill" bindtap='showVideo' data-arrindex='{{index}}'></image>
     </block>

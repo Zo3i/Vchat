@@ -15,11 +15,14 @@ Page({
       wx.showLoading({
         title: '请等待...',
       });
+      var user = app.getGloableUserInfo();
       var serverUrl = app.serverUrl
       wx.request({
         url: serverUrl + '/bgm/list',
         header: {
-          "content-type" : "application/json"
+          "content-type" : "application/json",
+          "userId": user.id,
+          "userToken": user.userToken
         },
         method: 'POST',
         success: function(res) {
@@ -69,7 +72,9 @@ Page({
         filePath: tempVideoUrl,
         name: 'file',
         header: {
-          'content-type': 'application/json' //默认值
+          'content-type': 'application/json', //默认值
+          "userId": userInfo.id,
+          "userToken": userInfo.userToken
         },
         success: function (res) {
           var data = JSON.parse(res.data)
@@ -88,38 +93,6 @@ Page({
             wx.navigateBack({
               delta:1,
             })
-            // //上传视频封面
-            // wx.uploadFile({
-            //   url: serverUrl + "/video/uploadVideoCover",
-            //   formData: {
-            //     userId: app.userInfo.id,
-            //     videoId: videoId,
-            //   },
-            //   filePath: tempCoverUrl,
-            //   name: 'file',
-            //   header: {
-            //     'content-type': 'application/json' //默认值
-            //   },
-            //   success: function (res) {
-            //    var date = JSON.parse(res.data);
-            //     wx.hideLoading();
-            //     if (data.status == 200) {
-            //       console.log(res);
-            //       wx.showToast({
-            //         title: '上传成功!',
-            //         duration: 2500,
-            //       })
-            //       wx.navigateBack({
-            //         delta:1,
-            //       })
-            //     } else {
-            //       wx.showToast({
-            //         title: '上传失败,请重试!!',
-            //         duration: 2500,
-            //       })
-            //     }
-            //   }
-            // })
           } 
         }
       })

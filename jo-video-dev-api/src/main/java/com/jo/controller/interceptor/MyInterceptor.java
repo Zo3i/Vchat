@@ -1,6 +1,5 @@
 package com.jo.controller.interceptor;
 
-import com.alibaba.druid.support.json.JSONUtils;
 import com.jo.utils.JSONResult;
 import com.jo.utils.JsonUtils;
 import com.jo.utils.RedisOperator;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 
 public class MyInterceptor implements HandlerInterceptor {
     @Autowired

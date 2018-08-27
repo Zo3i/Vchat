@@ -24,7 +24,7 @@ objectFit='{{cover}}'
 
 <cover-view class='container-me'>
             <!-- 头像 -->
-            <cover-image class="face" src='{{serverUrl}}{{publisher.faceImage}}' bindtap='showPublisher'></cover-image>
+            <cover-image class="face" src='{{serverUrl}}{{publishInfo.faceImage}}' bindtap='showPublisher'></cover-image>
 
 
             <!-- 喜欢收藏按钮 -->

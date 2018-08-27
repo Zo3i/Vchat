@@ -5,19 +5,18 @@ import java.util.List;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jo.mapper.*;
-import com.jo.pojo.SearchRecords;
+import com.jo.pojo.*;
 import com.jo.pojo.vo.VideosVo;
+import com.jo.utils.JSONResult;
 import com.jo.utils.PagedResult;
 import org.apache.catalina.User;
+import org.apache.commons.lang3.StringUtils;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jo.pojo.Bgm;
-import com.jo.pojo.Users;
-import com.jo.pojo.Videos;
 import com.jo.service.BgmService;
 import com.jo.service.UserService;
 import com.jo.service.VideoService;
@@ -30,10 +29,13 @@ public class VideoServiceImpl implements VideoService {
 
 	@Autowired
 	private VideosMapper videoMapper;
+	@Autowired UsersMapper usersMapper;
 	@Autowired
 	private VideosMapperCustom videosMapperCustom;
 	@Autowired
 	private SearchRecordsMapper searchRecordsMapper;
+	@Autowired
+	private UsersLikeVideosMapper usersLikeVideosMapper;
 	@Autowired
 	private Sid sid;
 	
@@ -71,6 +73,8 @@ public class VideoServiceImpl implements VideoService {
 
 		//保存热搜词
 		String desc = video.getVideoDesc();
+		String userId = video.getUserId();
+		System.out.println("查询用户ID: " + userId);
 		if (isSave != null && isSave == 1) {
 			SearchRecords records = new SearchRecords();
 			String recordId = sid.nextShort();
@@ -80,7 +84,7 @@ public class VideoServiceImpl implements VideoService {
 		}
 
 		PageHelper.startPage(page, pageSize);
-		List<VideosVo> list = videosMapperCustom.queryAllVideos(desc);
+		List<VideosVo> list = videosMapperCustom.queryAllVideos(desc, userId);
 		PageInfo<VideosVo> pageList = new PageInfo<>(list);
 
 		PagedResult pagedResult = new PagedResult();
@@ -95,6 +99,53 @@ public class VideoServiceImpl implements VideoService {
 	@Override
 	public List<String> getHotWords() {
 		return searchRecordsMapper.getHotWords();
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	@Override
+	public void userLikeVideo(String userId, String videoId, String videoCreaterId) {
+		//保存用户和视频点赞关系
+		String likeId = sid.nextShort();
+		UsersLikeVideos ulv = new UsersLikeVideos();
+		ulv.setId(likeId);
+		ulv.setUserId(userId);
+		ulv.setVideoId(videoId);
+		//视频喜欢数量累加
+		videosMapperCustom.addVideoLikeCount(videoId);
+		//用户视频被喜欢数量
+		usersMapper.addReceiveLikeCount(videoCreaterId);
+		usersLikeVideosMapper.insert(ulv);
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	@Override
+	public void userDislikeVideo(String userId, String videoId, String videoCreaterId) {
+		//删除用户和视频点赞关系
+		Example example = new Example(UsersLikeVideos.class);
+		Criteria criteria = example.createCriteria();
+		criteria.andEqualTo("userId", userId);
+		criteria.andEqualTo("videoId", videoId);
+		usersLikeVideosMapper.deleteByExample(example);
+		//视频喜欢数量累加
+		videosMapperCustom.reduceVideoLikeCount(videoId);
+		//用户视频被喜欢数量
+		usersMapper.reduceReceiveLikeCount(videoCreaterId);
+	}
+
+	@Override
+	public PagedResult queryLikeVideos(String userId, Integer page, Integer pageSize) {
+
+		PageHelper.startPage(page, pageSize);
+		List<VideosVo> list = videosMapperCustom.queryLikeVideos(userId);
+		PageInfo<VideosVo> pageList = new PageInfo<>(list);
+
+		PagedResult pagedResult = new PagedResult();
+		pagedResult.setPage(page);
+		pagedResult.setTotal(pageList.getPages());
+		pagedResult.setRows(list);
+		pagedResult.setRecords(pageList.getTotal());
+		return pagedResult;
+
 	}
 
 }

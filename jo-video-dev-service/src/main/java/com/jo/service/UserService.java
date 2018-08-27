@@ -31,4 +31,33 @@ public interface UserService {
 	 * @return
 	 */
 	Users queryUserInfo(String userId);
+
+	/**
+	 * @Desciption: 用户是否点赞
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	boolean isUserLikeVideo(String userId, String videoId);
+	/**
+	 * @Desciption:添加用户与粉丝的关系
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	void saveUserFanRelation(String userId, String fanId);
+	/**
+	 * @Desciption:删除用户与粉丝的关系
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	void delUserFanRelation(String userId, String fanId);
+	/**
+	 * @Desciption: 查询是不是粉丝
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	boolean queryIsFans(String userId, String fanId);
 }

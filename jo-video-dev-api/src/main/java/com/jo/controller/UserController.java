@@ -3,13 +3,16 @@ package com.jo.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
+import com.jo.pojo.vo.PublishInfoVO;
+import io.swagger.annotations.ApiImplicitParams;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -85,10 +88,14 @@ public class UserController extends BasicController{
 		return JSONResult.ok(uploadPathDB);
 	} 
 	@ApiOperation(value = "用户信息查询", notes = "查询信息接口")
-	@ApiImplicitParam(name = "userId", value = "用户Id", required = true, 
-					  dataType = "String", paramType = "query")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name = "userId", value = "用户Id", required = true,
+			dataType = "String", paramType = "query"),
+		@ApiImplicitParam(name = "fanId", value = "粉丝Id", required = true,
+			dataType = "String", paramType = "query")
+	})
 	@PostMapping("/query")
-	public JSONResult query(String userId) {
+	public JSONResult query(String userId,String fanId) {
 		
 		if(StringUtils.isBlank(userId)) {
 			return JSONResult.errorMsg("用户ID不能为空");
@@ -96,7 +103,48 @@ public class UserController extends BasicController{
 		Users userInfo = userService.queryUserInfo(userId);
 		UsersVO userVo = new UsersVO();
 		BeanUtils.copyProperties(userInfo, userVo);
+		userVo.setFollow(userService.queryIsFans(userId, fanId));
 		return JSONResult.ok(userVo);
 		
+	}
+	@Transactional(propagation = Propagation.SUPPORTS)
+	@PostMapping("/queryPublishInfo")
+	public JSONResult queryPublishInfo (String loginUserId, String videoId,
+										String publishUserId) {
+		if (StringUtils.isBlank(publishUserId)) {
+			return JSONResult.errorMsg("异常请求!");
+		}
+		//发布者信息
+		Users userInfo = userService.queryUserInfo(publishUserId);
+		UsersVO usersVO = new UsersVO();
+		BeanUtils.copyProperties(userInfo,usersVO);
+		//查询点赞关系
+		boolean userLikeVideo = userService.isUserLikeVideo(loginUserId, videoId);
+
+		PublishInfoVO publishInfoVO = new PublishInfoVO();
+		publishInfoVO.setPublishInfo(usersVO);
+		publishInfoVO.setUserLikeVideo(userLikeVideo);
+
+		return JSONResult.ok(publishInfoVO);
+	}
+
+	@PostMapping("/beAFans")
+	public JSONResult beAFans(String userId, String fanId) {
+		if (StringUtils.isBlank(userId) || StringUtils.isBlank(fanId)) {
+			return JSONResult.errorMsg("");
+		}
+
+		userService.saveUserFanRelation(userId,fanId);
+		return JSONResult.ok("关注成功!");
+	}
+
+	@PostMapping("/notAFans")
+	public JSONResult notAFans(String userId, String fanId) {
+		if (StringUtils.isBlank(userId) || StringUtils.isBlank(fanId)) {
+			return JSONResult.errorMsg("");
+		}
+
+		userService.delUserFanRelation(userId,fanId);
+		return JSONResult.ok("取关成功!");
 	}
 }

@@ -220,4 +220,28 @@ public class VideoController extends BasicController{
 		List<String> list = videoService.getHotWords();
 		return JSONResult.ok(list);
 	}
+	@PostMapping(value = "/userLike")
+	public JSONResult userLike(String userId, String videoId, String videoCreatorId) {
+		videoService.userLikeVideo( userId, videoId, videoCreatorId);
+		return JSONResult.ok();
+	}
+	@PostMapping(value = "/userDislike")
+	public JSONResult userDislike(String userId, String videoId, String videoCreatorId) {
+		videoService.userDislikeVideo( userId, videoId, videoCreatorId);
+		return JSONResult.ok();
+	}
+	@PostMapping("/showLike")
+	public JSONResult showLike(String userId, Integer page, Integer pageSize) {
+		if (StringUtils.isBlank(userId)) {
+			return JSONResult.errorMsg("");
+		}
+		if (page == null) {
+			page = 1;
+		}
+		if (pageSize == null) {
+			pageSize = 6;
+		}
+		PagedResult list = videoService.queryLikeVideos(userId, page, pageSize);
+		return JSONResult.ok(list);
+	}
 }
