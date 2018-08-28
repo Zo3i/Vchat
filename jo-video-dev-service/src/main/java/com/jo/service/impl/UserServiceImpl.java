@@ -1,10 +1,16 @@
 package com.jo.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.jo.mapper.UsersFansMapper;
 import com.jo.mapper.UsersLikeVideosMapper;
+import com.jo.mapper.UsersReportMapper;
 import com.jo.pojo.UsersFans;
 import com.jo.pojo.UsersLikeVideos;
+import com.jo.pojo.UsersReport;
+import com.jo.pojo.vo.UsersVO;
 import com.jo.utils.JSONResult;
+import com.jo.utils.PagedResult;
 import org.apache.catalina.User;
 import org.apache.commons.lang3.StringUtils;
 import org.n3r.idworker.Sid;
@@ -20,6 +26,7 @@ import com.jo.service.UserService;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -31,6 +38,8 @@ public class UserServiceImpl implements UserService {
 	private UsersFansMapper usersFansMapper;
 	@Autowired
 	private UsersLikeVideosMapper usersLikeVideosMapper;
+	@Autowired
+	private UsersReportMapper usersReportMapper;
 	@Autowired
 	private Sid sid;
 	@Override
@@ -144,5 +153,29 @@ public class UserServiceImpl implements UserService {
 		}
 		return false;
 	}
+
+	@Override
+	public PagedResult queryFollow(String userId, Integer page, Integer pageSize) {
+		PageHelper.startPage(page, pageSize);
+		List<Users> list = usermapper.queryFollow(userId);
+		PageInfo<Users> pageList = new PageInfo<>(list);
+
+		PagedResult pagedResult = new PagedResult();
+		pagedResult.setPage(page);
+		pagedResult.setTotal(pageList.getPages());
+		pagedResult.setRows(list);
+		pagedResult.setRecords(pageList.getTotal());
+		return pagedResult;
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	@Override
+	public void reportUser(UsersReport usersReport) {
+		String id = sid.nextShort();
+		usersReport.setId(id);
+		usersReport.setCreateDate(new Date());
+		usersReportMapper.insert(usersReport);
+	}
+
 
 }

@@ -26,7 +26,7 @@ Page({
     FollowTotle: 1,
 
     myWorkFlag: false,
-    myLikeFlag: true,
+    myLikesFlag: true,
     myFollowFlag:true
 
   },
@@ -95,8 +95,6 @@ Page({
         }
       }
     });
-
-
   },
   //退出登录
   logout: function () {
@@ -225,7 +223,6 @@ Page({
   doSelectWork: function () {
     var me = this;
     var page = me.data.myVideoPage;
-    var userId = me.data.publishId;
     this.setData({
       isSelectedWork: "video-info-selected",
       isSelectedLike: "",
@@ -234,22 +231,12 @@ Page({
       myVideoPage: 1,
       myVideoTotle: 1,
       myWorkFlag: false,
-      myLikeFlag: true,
+      myLikesFlag: true,
       myFollowFlag: true
     })
-    me.getVideoList(page, userId)
+    me.getVideoList(page)
   },
   doSelectLike: function () {
-    var me = this;
-    var page = me.data.likeVideoPage;
-    var user = app.getGloableUserInfo();
-    var userId = me.data.publishId;
-    if (userId = "" || userId == undefined || userId == null) {
-      userId = user.id;
-    }
-    console.log(userId)
-    console.log(page)
-    var pageSize = 6;
     this.setData({
       isSelectedWork: "",
       isSelectedLike: "video-info-selected",
@@ -259,10 +246,14 @@ Page({
       likeVideoPage: 1,
       likeVideoTotle: 1,
       myWorkFlag: true,
-      myLikeFlag: false,
+      myLikesFlag: false,
       myFollowFlag: true
     })
-    me.getLikeVideo(page, pageSize, userId);
+    var me = this;
+    var page = me.data.likeVideoPage;
+    console.log(page)
+    var pageSize = 6;
+    me.getLikeVideo(page);
   },
   doSelectFollow: function () {
     this.setData({
@@ -275,13 +266,17 @@ Page({
       FollowTotle: 1,
 
       myWorkFlag: true,
-      myLikeFlag: true,
+      myLikesFlag: true,
       myFollowFlag: false
     })
+    var me = this;
+    var page = me.data.FollowPage
+    me.getMyFollow(page)
   },
   //我的视频列表API
-  getVideoList: function (page, userId) {
+  getVideoList: function (page) {
     var me = this;
+    var userId = me.data.publishId
     var serverUrl = app.serverUrl
     wx.showLoading({
       title: '请等待...',
@@ -317,9 +312,17 @@ Page({
     })
   },
   //我收藏视频列表API
-  getLikeVideo: function(page, pageSize, userId) {
+  getLikeVideo: function(page) { 
     var me = this;
     var serverUrl = app.serverUrl
+    var user = app.getGloableUserInfo();
+    var userId = me.data.publishId;
+    console.log("用户ID=" + userId)
+    if (userId == "" || userId == undefined || userId == null || userId == false) {
+      userId = user.id;
+    }
+    console.log("用户ID=" + userId)
+    var pageSize = 6;
     wx.showLoading({
       title: '请等待...',
     });
@@ -350,6 +353,98 @@ Page({
         })
       }
     })
+  },
+  //我关注的人
+  getMyFollow: function (page) {
+    var serverUrl = app.serverUrl;
+    var me = this
+    var user = app.getGloableUserInfo();
+    var userId = me.data.publishId;
+    console.log("用户ID=" + userId)
+    if (userId == "" || userId == undefined || userId == null || userId == false) {
+      userId = user.id;
+    }
+    var pageSize = 6;
+    wx.showLoading({
+      title: '请等待...',
+    })
+    wx.request({
+      url: serverUrl + '/user/queryFollow?userId=' + userId 
+        + "&pageSize=" + pageSize + "&page=" + page,
+      header: {
+        'content-type': 'application/json', //默认值
+      },
+      method: "post",
+      success: function (res) {
+        wx.hideLoading();
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+        console.log(res.data);
+        //判断当前页面是否为首页,如果为首页则清空
+        if (FollowPage == 1) {
+          me.setData({
+            FollowList: []
+          })
+        }
+        var FollowList = res.data.data.rows;
+        var newVideoList = me.data.FollowList;
+        var total = res.data.data.total;
+        var FollowPage = res.data.data.page;
+        me.setData({
+          FollowList: newVideoList.concat(FollowList),
+          FollowPage: FollowPage,
+          FollowTotle: total,
+          serverUrl: serverUrl
+        })
+        console.log(me.data.FollowList)
+      }
+    })
+  },
+  showVideo: function (e) {
+    console.log(e);
+    var myWorkFlag = this.data.myWorkFlag;
+    var myLikesFlag = this.data.myLikesFlag;
+    var myFollowFlag = this.data.myFollowFlag;
+    if (!myWorkFlag) {
+      var videoList = this.data.myVideoList;
+    } else if (!myLikesFlag) {
+      var videoList = this.data.likeVideoList;
+    }
+
+    var arrindex = e.target.dataset.arrindex;
+    var videoInfo = JSON.stringify(videoList[arrindex])
+
+    wx.navigateTo({
+      url: '../videoInfo/videoInfo?videoInfo=' + videoInfo,
+    })
+  },
+  onReachBottom: function () {
+    var myWorkFlag = this.data.myWorkFlag;
+    var myLikesFlag = this.data.myLikesFlag;
+    var myFollowFlag = this.data.myFollowFlag;
+    if (!myWorkFlag) {
+      var currentPage = this.data.myVideoPage;
+      var totlePage = this.data.myVideoTotle;
+      if (currentPage == totlePage) {
+        wx.showToast({
+          title: '没有视频啦!',
+        })
+      } else {
+        var page = currentPage + 1
+        this.getVideoList(page)
+      }
+    } else if (!myLikesFlag) {
+      var currentPage = this.data.likeVideoPage;
+      var totlePage = this.data.likeVideoTotle;
+      if (currentPage == totlePage) {
+        wx.showToast({
+          title: '没有视频啦!',
+        })
+      } else {
+        var page = currentPage + 1
+        this.getLikeVideo(page)
+      }
+    }
   }
 
 })

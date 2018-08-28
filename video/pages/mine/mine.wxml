@@ -58,9 +58,9 @@
     </block>
 </view>
 
-<view hidden='{{myFollowFlag}}'>
-    <block wx:for="{{followVideoList}}" >
-        <image src='{{serverUrl}}{{item.coverPath}}' class='videoImage' mode="aspectFill" bindtap='showVideo' data-arrindex='{{index}}'></image>
+<view hidden='{{myFollowFlag}}' class = "follower">
+    <block wx:for="{{FollowList}}">
+        <image src='{{serverUrl}}{{item.faceImage}}' class='faceImage' mode="aspectFill" bindtap='showVideo' data-arrindex='{{index}}'></image> {{item.nickname}}
     </block>
 </view>
 

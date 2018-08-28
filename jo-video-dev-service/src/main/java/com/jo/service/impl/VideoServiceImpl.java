@@ -1,14 +1,17 @@
 package com.jo.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jo.mapper.*;
 import com.jo.pojo.*;
+import com.jo.pojo.vo.CommentsVo;
 import com.jo.pojo.vo.VideosVo;
 import com.jo.utils.JSONResult;
 import com.jo.utils.PagedResult;
+import com.jo.utils.TimeAgoUtils;
 import org.apache.catalina.User;
 import org.apache.commons.lang3.StringUtils;
 import org.n3r.idworker.Sid;
@@ -29,13 +32,18 @@ public class VideoServiceImpl implements VideoService {
 
 	@Autowired
 	private VideosMapper videoMapper;
-	@Autowired UsersMapper usersMapper;
+	@Autowired
+	private UsersMapper usersMapper;
+	@Autowired
+	private CommentsMapper commentsMapper;
 	@Autowired
 	private VideosMapperCustom videosMapperCustom;
 	@Autowired
 	private SearchRecordsMapper searchRecordsMapper;
 	@Autowired
 	private UsersLikeVideosMapper usersLikeVideosMapper;
+	@Autowired
+	private CommentsCustomMapper commentsCustomMapper;
 	@Autowired
 	private Sid sid;
 	
@@ -146,6 +154,33 @@ public class VideoServiceImpl implements VideoService {
 		pagedResult.setRecords(pageList.getTotal());
 		return pagedResult;
 
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	@Override
+	public void saveComment(Comments comment) {
+		String id = sid.nextShort();
+		comment.setId(id);
+		comment.setCreateTime(new Date());
+		commentsMapper.insert(comment);
+	}
+
+	@Override
+	public PagedResult getComments(String videoId, Integer page, Integer pageSize) {
+		PageHelper.startPage(page, pageSize);
+		List<CommentsVo> list = commentsCustomMapper.queryCommtes(videoId);
+		for (CommentsVo c : list) {
+			String timeAgo = TimeAgoUtils.format(c.getCreateTime());
+			c.setTimeAgo(timeAgo);
+		}
+		PageInfo<CommentsVo> pageList = new PageInfo<>(list);
+
+		PagedResult pagedResult = new PagedResult();
+		pagedResult.setPage(page);
+		pagedResult.setTotal(pageList.getPages());
+		pagedResult.setRows(list);
+		pagedResult.setRecords(pageList.getTotal());
+		return pagedResult;
 	}
 
 }

@@ -1,6 +1,10 @@
 package com.jo.service;
 
 import com.jo.pojo.Users;
+import com.jo.pojo.UsersReport;
+import com.jo.utils.PagedResult;
+
+import java.util.List;
 
 public interface UserService {
  /**
@@ -60,4 +64,18 @@ public interface UserService {
 	 * @author:张琪灵
 	 */
 	boolean queryIsFans(String userId, String fanId);
+	/**
+	 * @Desciption:查询用户关注;
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	PagedResult queryFollow(String userId, Integer page, Integer pageSize);
+	/**
+	 * @Desciption:举报用户
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	void reportUser(UsersReport usersReport);
 }

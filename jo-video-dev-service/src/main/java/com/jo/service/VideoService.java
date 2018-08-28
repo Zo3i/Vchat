@@ -3,6 +3,7 @@ package com.jo.service;
 import java.util.List;
 
 import com.jo.pojo.Bgm;
+import com.jo.pojo.Comments;
 import com.jo.pojo.Users;
 import com.jo.pojo.Videos;
 import com.jo.pojo.vo.VideosVo;
@@ -51,6 +52,26 @@ public interface VideoService {
 	 * @author:张琪灵
 	 */
 	void userDislikeVideo(String userId, String VideoId, String videoCreaterId);
+	/**
+	 * @Desciption: 查询喜欢的视频
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
 	PagedResult queryLikeVideos(String userId, Integer page, Integer pageSize);
+	/**
+	 * @Desciption:保存留言
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	void saveComment(Comments comment);
+	/**
+	 * @Desciption:获取评论
+	 * @version:v-1.00
+	 * @return:
+	 * @author:张琪灵
+	 */
+	PagedResult getComments(String videoId, Integer page, Integer pageSize);
 
 }

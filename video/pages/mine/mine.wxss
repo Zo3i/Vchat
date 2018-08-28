@@ -76,3 +76,16 @@ page {
     width: 250rpx;
     height: 180px;
 }
+.faceImage{
+  width:80rpx;
+  height:80rpx;
+  border-radius:50%;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.follower {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #a0c5e8;
+  line-height: 5px;
+}

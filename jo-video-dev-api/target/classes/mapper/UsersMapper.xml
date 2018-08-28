@@ -39,5 +39,9 @@
   <update id="reduceFollersCount" parameterType="String">
   	update users set follow_counts = follow_counts-1 where id=#{userId}
   </update>
+  <select id="queryFollow" resultMap="BaseResultMap" parameterType="String">
+    select u.face_image, u.nickname from users u where u.id in
+    (select f.user_id from users_fans f where f.fan_id = #{userId})
+  </select>
   
 </mapper>

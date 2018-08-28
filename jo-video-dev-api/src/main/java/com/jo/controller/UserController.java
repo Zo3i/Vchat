@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
+import com.jo.pojo.UsersReport;
 import com.jo.pojo.vo.PublishInfoVO;
+import com.jo.utils.PagedResult;
 import io.swagger.annotations.ApiImplicitParams;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -13,10 +15,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jo.pojo.Users;
@@ -146,5 +145,26 @@ public class UserController extends BasicController{
 
 		userService.delUserFanRelation(userId,fanId);
 		return JSONResult.ok("取关成功!");
+	}
+	@PostMapping("/queryFollow")
+	public JSONResult queryFollow (String userId, Integer page, Integer pageSize) {
+		System.out.println("UserID= " + userId);
+		if (StringUtils.isBlank(userId)) {
+			return JSONResult.errorMsg("");
+		}
+		if (page == null) {
+			page = 1;
+		}
+		if (pageSize == null) {
+			pageSize = 6;
+		}
+		PagedResult list = userService.queryFollow(userId, page, pageSize);
+		return JSONResult.ok(list);
+	}
+	@PostMapping("/reportUser")
+	public JSONResult reportUser (@RequestBody UsersReport usersReport) {
+		//举报信息
+		userService.reportUser(usersReport);
+		return JSONResult.ok("举报成功!");
 	}
 }

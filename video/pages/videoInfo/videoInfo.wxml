@@ -40,7 +40,7 @@ objectFit='{{cover}}'
             <cover-image class="size-me" src='../resource/images/comments.png' style='margin-top:30rpx;' bindtap='leaveComment'></cover-image>
 
             <!-- 分享按钮 -->
-            <cover-image class="size-me" src='../resource/images/share.png' style='margin-top:30rpx;' bindtap='shareMe'></cover-image>
+            <cover-image class="size-me" src='../resource/images/share.png' style='margin-top:30rpx;' bindtap='showMe'></cover-image>
 
         </cover-view>
 
@@ -73,7 +73,7 @@ objectFit='{{cover}}'
 <view>
 
 <view class="saySthView">
-<input name="commentContent" class="saySth" placeholder="{{placeholder}}" confirm-type="send" bindconfirm="saveComment" focus='{{commentFocus}}' value='{{contentValue}}'
+<input name="commentContent" class="saySth" placeholder="说点什么..." confirm-type="send" bindconfirm="saveComment" focus='{{commentFocus}}' value='{{contentValue}}'
 data-replyFatherCommentId='{{replyFatherCommentId}}'
 data-replyToUserId='{{replyToUserId}}'
 />
@@ -86,11 +86,11 @@ data-replyToUserId='{{replyToUserId}}'
   data-toNickname='{{item.nickname}}' 
   >
       <view class='container-comments'>
-          <image class="face-comments" src='{{serverUrl}}{{item.faceImage}}' ></image>
+          <image class="face-comments" src='{{serverUrl}}{{item.facePath}}' ></image>
           <view class='nickname-comments'>
-              <label class='nickname-lbl'>@{{item.nickname}}</label>
+              <label class='nickname-lbl'>@{{item.nickName}}</label>
               于 
-              <label class='date-lbl'>{{item.timeAgoStr}}</label>
+              <label class='date-lbl'>{{item.timeAgo}}</label>
               <!-- 留言： -->
               <block wx:if="{{item.toNickname != null}}">
                 回复

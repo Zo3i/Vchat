@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import com.jo.pojo.Comments;
 import com.jo.utils.FetchVideoCover;
 import com.jo.utils.PagedResult;
 import org.apache.commons.io.IOUtils;
@@ -230,7 +231,7 @@ public class VideoController extends BasicController{
 		videoService.userDislikeVideo( userId, videoId, videoCreatorId);
 		return JSONResult.ok();
 	}
-	@PostMapping("/showLike")
+	@PostMapping(value = "/showLike")
 	public JSONResult showLike(String userId, Integer page, Integer pageSize) {
 		if (StringUtils.isBlank(userId)) {
 			return JSONResult.errorMsg("");
@@ -242,6 +243,25 @@ public class VideoController extends BasicController{
 			pageSize = 6;
 		}
 		PagedResult list = videoService.queryLikeVideos(userId, page, pageSize);
+		return JSONResult.ok(list);
+	}
+	@PostMapping(value = "/saveComment")
+	public JSONResult saveComment(@RequestBody Comments comments){
+		videoService.saveComment(comments);
+		return JSONResult.ok("保存成功");
+	}
+	@PostMapping(value = "/getComments")
+	public JSONResult getCommnets(String videoId, Integer page, Integer pageSize) {
+		if (StringUtils.isBlank(videoId)) {
+			return JSONResult.errorMsg("请填写ID");
+		}
+		if (page == null) {
+			page = 1;
+		}
+		if (pageSize == null) {
+			pageSize = 10;
+		}
+		PagedResult list = videoService.getComments(videoId, page, pageSize);
 		return JSONResult.ok(list);
 	}
 }

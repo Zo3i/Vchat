@@ -1,7 +1,10 @@
 package com.jo.mapper;
 
 import com.jo.pojo.Users;
+import com.jo.pojo.vo.UsersVO;
 import com.jo.utils.MyMapper;
+
+import java.util.List;
 
 public interface UsersMapper extends MyMapper<Users> {
     /**
@@ -46,4 +49,5 @@ public interface UsersMapper extends MyMapper<Users> {
 	 * @author:张琪灵
 	 */
 	void reduceFollersCount(String userId);
+	List<Users> queryFollow(String userId);
 }
