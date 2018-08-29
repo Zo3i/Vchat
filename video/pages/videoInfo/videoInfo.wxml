@@ -73,7 +73,7 @@ objectFit='{{cover}}'
 <view>
 
 <view class="saySthView">
-<input name="commentContent" class="saySth" placeholder="说点什么..." confirm-type="send" bindconfirm="saveComment" focus='{{commentFocus}}' value='{{contentValue}}'
+<input name="commentContent" class="saySth" placeholder="{{placeholder}}" confirm-type="send" bindconfirm="saveComment" focus='{{commentFocus}}' value='{{contentValue}}'
 data-replyFatherCommentId='{{replyFatherCommentId}}'
 data-replyToUserId='{{replyToUserId}}'
 />
@@ -83,7 +83,7 @@ data-replyToUserId='{{replyToUserId}}'
   <view class='comments-all' bindtap='replyFocus' 
   data-fatherCommentId='{{item.id}}'  
   data-toUserId='{{item.fromUserId}}' 
-  data-toNickname='{{item.nickname}}' 
+  data-toNickname='{{item.nickName}}' 
   >
       <view class='container-comments'>
           <image class="face-comments" src='{{serverUrl}}{{item.facePath}}' ></image>
@@ -92,9 +92,9 @@ data-replyToUserId='{{replyToUserId}}'
               于 
               <label class='date-lbl'>{{item.timeAgo}}</label>
               <!-- 留言： -->
-              <block wx:if="{{item.toNickname != null}}">
+              <block wx:if="{{item.toNickName != null}}">
                 回复
-                <label class='nickname-lbl'>@{{item.toNickname}}</label>
+                <label class='nickname-lbl'>@{{item.toNickName}}</label>
               </block>
               <block wx:else>
                 留言：

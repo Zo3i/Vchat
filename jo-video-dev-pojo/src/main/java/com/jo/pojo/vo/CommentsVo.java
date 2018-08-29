@@ -31,9 +31,13 @@ public class CommentsVo {
 
     private String nickName;
     private String faceImage;
+    private String toNickName;
     private String TimeAgo;
 
+
+
     /**
+
      * 评论内容
      */
     private String comment;
@@ -170,5 +174,20 @@ public class CommentsVo {
 
     public void setTimeAgo(String timeAgo) {
         TimeAgo = timeAgo;
+    }
+        public String getFaceImage() {
+        return faceImage;
+    }
+
+    public void setFaceImage(String faceImage) {
+        this.faceImage = faceImage;
+    }
+
+    public String getToNickName() {
+        return toNickName;
+    }
+
+    public void setToNickName(String toNickName) {
+        this.toNickName = toNickName;
     }
 }

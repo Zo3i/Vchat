@@ -246,8 +246,13 @@ public class VideoController extends BasicController{
 		return JSONResult.ok(list);
 	}
 	@PostMapping(value = "/saveComment")
-	public JSONResult saveComment(@RequestBody Comments comments){
+	public JSONResult saveComment(@RequestBody Comments comments, String fatherCommentId, String toUserId){
+		if(StringUtils.isNotBlank(fatherCommentId) && StringUtils.isNotBlank(toUserId)){
+			comments.setFatherCommentId(fatherCommentId);
+			comments.setToUserId(toUserId);
+		}
 		videoService.saveComment(comments);
+
 		return JSONResult.ok("保存成功");
 	}
 	@PostMapping(value = "/getComments")

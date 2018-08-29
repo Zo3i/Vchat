@@ -3,37 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="af1844e7-a3d0-46f8-a47e-08d2e14bea7a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/WebMvcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/controller/VideoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/UsersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/UsersMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/VideosCustomMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/VideosCustomMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/target/classes/com/jo/WebMvcConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/target/classes/com/jo/WebMvcConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/target/classes/com/jo/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/target/classes/com/jo/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/CommentsCustomMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/CommentsCustomMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jo-video-dev-api/target/classes/com/jo/controller/VideoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/target/classes/com/jo/controller/VideoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/target/classes/mapper/UsersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/target/classes/mapper/UsersMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/target/classes/mapper/VideosCustomMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/target/classes/mapper/VideosCustomMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-mapper/src/main/java/com/jo/mapper/CommentsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-mapper/src/main/java/com/jo/mapper/CommentsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-mapper/src/main/java/com/jo/mapper/UsersMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-mapper/src/main/java/com/jo/mapper/UsersMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-mapper/src/main/java/com/jo/mapper/VideosMapperCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-mapper/src/main/java/com/jo/mapper/VideosMapperCustom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-mapper/target/classes/com/jo/mapper/CommentsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-mapper/target/classes/com/jo/mapper/CommentsMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-mapper/target/classes/com/jo/mapper/UsersMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-mapper/target/classes/com/jo/mapper/UsersMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-mapper/target/classes/com/jo/mapper/VideosMapperCustom.class" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-mapper/target/classes/com/jo/mapper/VideosMapperCustom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/VideoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/VideoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/impl/VideoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/impl/VideoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-service/target/classes/com/jo/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-service/target/classes/com/jo/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jo-video-dev-api/target/classes/mapper/CommentsCustomMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-api/target/classes/mapper/CommentsCustomMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jo-video-dev-pojo/src/main/java/com/jo/pojo/vo/CommentsVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-pojo/src/main/java/com/jo/pojo/vo/CommentsVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jo-video-dev-pojo/target/classes/com/jo/pojo/vo/CommentsVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-pojo/target/classes/com/jo/pojo/vo/CommentsVo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jo-video-dev-service/target/classes/com/jo/service/VideoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-service/target/classes/com/jo/service/VideoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jo-video-dev-service/target/classes/com/jo/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-service/target/classes/com/jo/service/impl/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jo-video-dev-service/target/classes/com/jo/service/impl/VideoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/jo-video-dev-service/target/classes/com/jo/service/impl/VideoServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/video/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/video/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video/pages/mine/mine.js" beforeDir="false" afterPath="$PROJECT_DIR$/video/pages/mine/mine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video/pages/mine/mine.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/video/pages/mine/mine.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video/pages/mine/mine.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/video/pages/mine/mine.wxss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/video/pages/videoInfo/videoInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/video/pages/videoInfo/videoInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/video/pages/videoInfo/videoInfo.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/video/pages/videoInfo/videoInfo.wxml" afterDir="false" />
     </list>
@@ -55,8 +32,8 @@
       <file leaf-file-name="VideoController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/controller/VideoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4893">
-              <caret line="263" selection-start-line="263" selection-end-line="263" />
+            <state relative-caret-position="4662">
+              <caret line="252" column="9" selection-start-line="252" selection-start-column="9" selection-end-line="252" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -91,13 +68,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommentsVo.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CommentsVo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jo-video-dev-pojo/src/main/java/com/jo/pojo/vo/CommentsVo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="32" column="28" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="28" />
+            <state relative-caret-position="168">
+              <caret line="26" column="29" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3084#3085#0" expanded="true" />
+                <element signature="e#3116#3117#0" expanded="true" />
+                <element signature="e#3166#3167#0" expanded="true" />
+                <element signature="e#3208#3209#0" expanded="true" />
+                <element signature="e#3245#3246#0" expanded="true" />
+                <element signature="e#3278#3279#0" expanded="true" />
+                <element signature="e#3330#3331#0" expanded="true" />
+                <element signature="e#3374#3375#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,8 +91,8 @@
       <file leaf-file-name="VideoServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/impl/VideoServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3003">
-              <caret line="170" column="20" selection-start-line="170" selection-start-column="13" selection-end-line="170" selection-end-column="23" />
+            <state relative-caret-position="2793">
+              <caret line="160" column="44" selection-start-line="160" selection-start-column="44" selection-end-line="160" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,17 +103,26 @@
       <file leaf-file-name="CommentsCustomMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/CommentsCustomMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
+            <state relative-caret-position="483">
+              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jo-video-dev-api/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
+            <state relative-caret-position="1659">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chooseBgm.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/video/pages/chooseBgm/chooseBgm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -136,8 +130,8 @@
       <file leaf-file-name="VideoService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/VideoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1302">
-              <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
+            <state relative-caret-position="1260">
+              <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -172,18 +166,18 @@
         <option value="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/UserService.java" />
         <option value="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/VideoService.java" />
         <option value="$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/WebMvcConfig.java" />
         <option value="$PROJECT_DIR$/jo-video-dev-mapper/src/main/java/com/jo/mapper/VideosMapperCustom.java" />
-        <option value="$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/controller/VideoController.java" />
         <option value="$PROJECT_DIR$/jo-video-dev-mapper/src/main/java/com/jo/mapper/CommentsCustomMapper.java" />
         <option value="$PROJECT_DIR$/jo-video-dev-mapper/src/main/java/com/jo/mapper/CommentsMapper.java" />
-        <option value="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/impl/VideoServiceImpl.java" />
         <option value="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/CommentsMapper.xml" />
-        <option value="$PROJECT_DIR$/jo-video-dev-pojo/src/main/java/com/jo/pojo/vo/CommentsVo.java" />
-        <option value="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/CommentsCustomMapper.xml" />
         <option value="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/jo-video-dev-common/src/main/java/com/jo/utils/Code.java" />
+        <option value="$PROJECT_DIR$/jo-video-dev-pojo/src/main/java/com/jo/pojo/vo/CommentsVo.java" />
+        <option value="$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/CommentsCustomMapper.xml" />
+        <option value="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/impl/VideoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/VideoService.java" />
+        <option value="$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/controller/VideoController.java" />
       </list>
     </option>
   </component>
@@ -210,8 +204,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -219,361 +211,13 @@
               <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
               <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-pojo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-pojo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-pojo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-pojo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-pojo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-pojo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-pojo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-              <item name="pojo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-pojo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-              <item name="pojo" type="462c0819:PsiDirectoryNode" />
-              <item name="vo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="jo-video-dev-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jo" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jo-video-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jo-video-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="video" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -588,7 +232,7 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/hklib/project" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -611,7 +255,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Code">
+  <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="Code" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jo.utils.Code" />
       <module name="jo-video-dev-common" />
@@ -680,8 +324,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Code" />
         <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Application.Code" />
       </list>
     </recent_temporary>
   </component>
@@ -702,11 +346,14 @@
       <workItem from="1535330182199" duration="17521000" />
       <workItem from="1535384489030" duration="49000" />
       <workItem from="1535384565897" duration="217000" />
+      <workItem from="1535416616963" duration="2068000" />
+      <workItem from="1535436887180" duration="1926000" />
+      <workItem from="1535441457246" duration="502000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69250000" />
+    <option name="totallyTimeSpent" value="73746000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -717,22 +364,23 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" anchor="bottom" id="Statistic" visible="true" weight="0.9328969" />
+      <window_info anchor="bottom" id="Statistic" order="8" weight="0.28805238" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3289689" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2487725" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31735536" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2730711" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27760968" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -740,7 +388,6 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3289689" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -758,13 +405,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/controller/BgmController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/impl/BgmServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -1051,13 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/controller/VideoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4893">
-          <caret line="263" selection-start-line="263" selection-end-line="263" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jo-video-dev-mapper/src/main/java/com/jo/mapper/CommentsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1075,13 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/VideoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1302">
-          <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/CommentsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1089,47 +715,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/impl/VideoServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/jo-video-dev-common/src/main/java/com/jo/utils/Code.java" />
+    <entry file="file://$PROJECT_DIR$/jo-video-dev-api/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3003">
-          <caret line="170" column="20" selection-start-line="170" selection-start-column="13" selection-end-line="170" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1659">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jo-video-dev-pojo/src/main/java/com/jo/pojo/vo/CommentsVo.java">
+    <entry file="file://$PROJECT_DIR$/video/pages/chooseBgm/chooseBgm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="32" column="28" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="168">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jo-video-dev-api/src/main/resources/mapper/CommentsCustomMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
+        <state relative-caret-position="483">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jo-video-dev-common/src/main/java/com/jo/utils/Code.java">
+    <entry file="file://$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/impl/VideoServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+        <state relative-caret-position="2793">
+          <caret line="160" column="44" selection-start-line="160" selection-start-column="44" selection-end-line="160" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jo-video-dev-api/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/jo-video-dev-service/src/main/java/com/jo/service/VideoService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
+        <state relative-caret-position="1260">
+          <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jo-video-dev-api/src/main/java/com/jo/controller/VideoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4662">
+          <caret line="252" column="9" selection-start-line="252" selection-start-column="9" selection-end-line="252" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jo-video-dev-pojo/src/main/java/com/jo/pojo/vo/CommentsVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3084#3085#0" expanded="true" />
+            <element signature="e#3116#3117#0" expanded="true" />
+            <element signature="e#3166#3167#0" expanded="true" />
+            <element signature="e#3208#3209#0" expanded="true" />
+            <element signature="e#3245#3246#0" expanded="true" />
+            <element signature="e#3278#3279#0" expanded="true" />
+            <element signature="e#3330#3331#0" expanded="true" />
+            <element signature="e#3374#3375#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

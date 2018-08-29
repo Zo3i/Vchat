@@ -8,6 +8,7 @@ Page({
     videoId: "",
     src: "",
     videoInfo: {},
+    placeholder:"说点什么...",
     userLikeVideo:false,
     publishInfo:{},
     serverUrl:"",
@@ -262,6 +263,11 @@ Page({
     var serverUrl = app.serverUrl; 
     var videoInfo = JSON.stringify(me.data.videoInfo)
     var redictUrl = '../videoInfo/videoInfo#videoInfo@' + videoInfo;
+    //获取回复的评论
+    var fatherCommentId = e.currentTarget.dataset.replyfathercommentid;
+    var toUserId = e.currentTarget.dataset.replytouserid;
+    
+    
     if (content.length<=0) {
       wx.showToast({
         title: '再说个字吧!',
@@ -277,7 +283,8 @@ Page({
         title: '请等待...',
       })
       wx.request({
-        url: serverUrl + "/video/saveComment",
+        url: serverUrl + "/video/saveComment?fatherCommentId=" + fatherCommentId
+          + "&toUserId=" + toUserId ,
         method: "POST",
         header: {
           "userId": user.id,
@@ -335,6 +342,18 @@ Page({
       var page = currentPage + 1;
       me.getCommentsList(page);
     }
+  },
+  replyFocus:function (e) {
+    console.log(e)
+    var fatherCommentId = e.currentTarget.dataset.fathercommentid;
+    var toUserId = e.currentTarget.dataset.touserid;
+    var toNickName = e.currentTarget.dataset.tonickname
+    this.setData({
+      placeholder:"回复" + toNickName,
+      replyFatherCommentId: fatherCommentId,
+      replyToUserId: toUserId,
+      commentFocus: true
+    })
   }
 
 })
