@@ -1,5 +1,6 @@
 package com.jo;
 
+import com.jo.config.ResourceConfig;
 import com.jo.enums.BgmOperatTypeEnum;
 import com.jo.pojo.Bgm;
 import com.jo.service.BgmService;
@@ -16,6 +17,7 @@ import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 import java.io.File;
 import java.net.URL;
@@ -29,11 +31,11 @@ public class ZKCuratorClient {
     final static Logger log = LoggerFactory.getLogger(ZKCuratorClient.class);
 
     @Autowired
-    private BgmService bgmService;
-
-    public static final String ZOOKEEPER_SERVER = "178.32.220.211:2181";
+    private ResourceConfig resourceConfig;
 
     public void init() {
+
+        String ZOOKEEPER_SERVER = resourceConfig.getZookeeperServer();
         log.info("init ZK");
         if (client != null) {
             return;
@@ -69,17 +71,9 @@ public class ZKCuratorClient {
                     Map<String,String> map = JsonUtils.jsonToPojo(typeMap,Map.class);
                     String opType = map.get("opType");
                     String bgmPath =map.get("path");
-                    log.info(bgmPath);
-//                    log.info(path);
-//                    String bgmId = path.split("/")[2];
-//                    log.info("bgmId"+bgmId);
-//                    //获取路径
-//                    Bgm bgm = bgmService.queryById(bgmId);
-//                    //bgm 所在的相对路径
-//                    String bgmPath = bgm.getPath();
                     log.info("BGM path :" +bgmPath);
                     //保存到本地的目录
-                    String localPath = "E:\\WeixinApp\\userFile\\wxBgm" + bgmPath;
+                    String localPath = resourceConfig.getFileSpace() + bgmPath;
                     //定义保存路径
                     String arrPath[] = bgmPath.split("\\\\");
                     String finalPath = "";
@@ -91,7 +85,7 @@ public class ZKCuratorClient {
                     }
                     log.info("保存路径:" + finalPath);
                     //下载路径
-                    String bgmUrl = "http://192.168.222.1:99/file" + finalPath;
+                    String bgmUrl = resourceConfig.getBgmServer() + finalPath;
                     log.info("下载路径"+bgmUrl);
 
                     if(opType.equals(BgmOperatTypeEnum.ADD.type)){
