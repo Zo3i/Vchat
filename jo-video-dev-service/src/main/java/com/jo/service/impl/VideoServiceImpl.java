@@ -24,6 +24,7 @@ import com.jo.service.BgmService;
 import com.jo.service.UserService;
 import com.jo.service.VideoService;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
 
@@ -93,6 +94,15 @@ public class VideoServiceImpl implements VideoService {
 
 		PageHelper.startPage(page, pageSize);
 		List<VideosVo> list = videosMapperCustom.queryAllVideos(desc, userId);
+		for (VideosVo s : list) {
+			Integer width = s.getVideoWidth();
+			Integer height = s.getVideoHeight();
+			if (width > height) {
+				s.setMode("widthFix");
+			} else {
+				s.setMode("aspectFit");
+			}
+		}
 		PageInfo<VideosVo> pageList = new PageInfo<>(list);
 
 		PagedResult pagedResult = new PagedResult();

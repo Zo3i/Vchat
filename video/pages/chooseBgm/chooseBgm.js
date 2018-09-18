@@ -90,8 +90,8 @@ Page({
               title: '上传成功!',
               duration: 2500,
             })
-            wx.navigateBack({
-              delta:1,
+            wx.redirectTo({
+              url: '../index/index'
             })
           } 
         }

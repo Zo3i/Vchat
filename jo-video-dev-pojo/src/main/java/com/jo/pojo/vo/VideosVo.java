@@ -20,6 +20,15 @@ public class VideosVo {
     private Date createTime;
     private String faceImage;
     private String nickName;
+    private String mode;
+
+    public String getMode() {
+        return mode;
+    }
+
+    public void setMode(String mode) {
+        this.mode = mode;
+    }
 
     public String getFaceImage() {
         return faceImage;

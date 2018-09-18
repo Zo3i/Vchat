@@ -252,9 +252,15 @@ Page({
     }
   },
   leaveComment: function () {
-    this.setData({
-      commentFocus: true
-    })
+    var me = this;
+    var videoPublishUserId = me.data.videoInfo.userId;
+    var user = app.getGloableUserInfo();
+    console.log(videoPublishUserId)
+    if (videoPublishUserId != user.id) {
+      this.setData({
+        commentFocus: true
+      })
+    }
   },
   saveComment: function (e) {
     var me = this;
@@ -348,12 +354,15 @@ Page({
     var fatherCommentId = e.currentTarget.dataset.fathercommentid;
     var toUserId = e.currentTarget.dataset.touserid;
     var toNickName = e.currentTarget.dataset.tonickname
-    this.setData({
-      placeholder:"回复" + toNickName,
-      replyFatherCommentId: fatherCommentId,
-      replyToUserId: toUserId,
-      commentFocus: true
-    })
+    var user = app.getGloableUserInfo();
+    if (e.currentTarget.dataset.touserid != user.id) {
+      this.setData({
+        placeholder:"回复" + toNickName,
+        replyFatherCommentId: fatherCommentId,
+        replyToUserId: toUserId,
+        commentFocus: true
+      })
+    }
   }
 
 })

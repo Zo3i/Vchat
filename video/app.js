@@ -1,6 +1,6 @@
 //app.js
 App({
-  serverUrl: "http://192.168.222.1:8081",
+  serverUrl: "http://v.zxx.im:8999",
   userInfo: null,
   setGloableUserInfo: function(user) {
     wx.setStorageSync("userInfo", user)

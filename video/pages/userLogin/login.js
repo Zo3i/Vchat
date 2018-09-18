@@ -58,8 +58,8 @@ Page({
             //todu页面跳转
             var redictUrl = me.redictUrl
             if (redictUrl == null || redictUrl == "" || redictUrl == undefined) {
-              wx.navigateTo({
-                url: '../mine/mine',
+              wx.redirectTo({
+                url: '../index/index',
               })
             } else {
               wx.navigateTo({

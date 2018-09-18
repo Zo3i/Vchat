@@ -12,6 +12,7 @@ import com.jo.utils.FetchVideoCover;
 import com.jo.utils.PagedResult;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -42,6 +43,8 @@ public class VideoController extends BasicController{
 	private BgmService bgmService;
 	@Autowired
 	private VideoService videoService;
+	@Autowired
+	private Sid sid;
 	
 	@ApiOperation(value = "上传视频", notes = "上传视频接口")
 	@ApiImplicitParams({
@@ -79,8 +82,9 @@ public class VideoController extends BasicController{
 		try {
 			if (file != null) {
 				System.out.println("图片名字"+file.getOriginalFilename());
+				System.out.println("文件名字" + file.getOriginalFilename());
 				String fileName = file.getOriginalFilename();
-				String fileNamePre = fileName.split("\\.")[2];
+				String fileNamePre = sid.nextShort();
 				if (StringUtils.isNotBlank(fileName)) {
 					finalVideoPath = FILE_SAVE_lOCATION + uploadPathDB + "/" + fileName;
 					//设置数据库保存路径

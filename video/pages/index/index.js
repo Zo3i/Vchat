@@ -87,13 +87,29 @@ Page({
           })
         }
         var videoList = res.data.data.rows;
+        console.log(videoList)
+        if (videoList.length == 0) {
+          console.log("啥也没有")
+          wx.showToast({
+            title: '啥也没有!',
+            duration: 2000,
+          })
+          setTimeout(
+            function () {
+              wx.navigateTo({
+                url: '../index/index',
+              })
+            },2000
+          )
+          
+        }
         var newVideoList = me.data.videoList;
         var total = res.data.data.total;
         me.setData({
           videoList: newVideoList.concat(videoList),
           page: page,
           totalPage: total,
-          serverUrl: serverUrl
+          serverUrl: serverUrl,
         })
       }
     })

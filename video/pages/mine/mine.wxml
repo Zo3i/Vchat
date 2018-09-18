@@ -12,7 +12,7 @@
 
     <block wx:if="{{isMe}}">
       <button size='mini' class='primary' bindtap='uploadVideo'> 上传作品</button>
-      <button size='mini' type='' class='logout' bindtap='logout'>注销</button>
+      <button size='mini' type='' class='logout' bindtap='logout'>注销登录</button>
     </block>
     <block wx:if="{{!isMe}}">
       <block wx:if="{{isFollow}}">

@@ -38,9 +38,6 @@ Page({
     console.log("用户ID" + params.pulishId)
     var publishId = params.pulishId;
 
-    //获取默认的列表
-    me.getVideoList(1, params.pulishId)
-
     if (publishId != "" && publishId != null && publishId != undefined) {
       if (publishId != userId) {
         me.setData({
@@ -95,6 +92,21 @@ Page({
         }
       }
     });
+
+    me.setData({
+      isSelectedWork: "video-info-selected",
+      isSelectedLike: "",
+      isSelectedFollow: "",
+      myVideoList: [],
+      myVideoPage: 1,
+      myVideoTotle: 1,
+      myWorkFlag: false,
+      myLikesFlag: true,
+      myFollowFlag: true
+    })
+    //获取默认的列表
+    me.getVideoList(1)
+    
   },
   //退出登录
   logout: function () {
@@ -118,7 +130,7 @@ Page({
           })
           // app.userInfo = null
           wx.removeStorageSync("userInfo")
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../userLogin/login',
           })
         } 
@@ -222,7 +234,6 @@ Page({
   //tab栏切换
   doSelectWork: function () {
     var me = this;
-    var page = me.data.myVideoPage;
     this.setData({
       isSelectedWork: "video-info-selected",
       isSelectedLike: "",
@@ -234,6 +245,8 @@ Page({
       myLikesFlag: true,
       myFollowFlag: true
     })
+    var page = me.data.myVideoPage;
+    console.log("全局page = " + page)
     me.getVideoList(page)
   },
   doSelectLike: function () {
@@ -277,10 +290,16 @@ Page({
   getVideoList: function (page) {
     var me = this;
     var userId = me.data.publishId
+    var user = app.getGloableUserInfo();
+    if (userId == "" || userId == null || userId == undefined) {
+      userId = user.id
+    }
+    console.log("发布者ID-" + userId)
     var serverUrl = app.serverUrl
     wx.showLoading({
       title: '请等待...',
     });
+    console.log("当前页数-" + page)
     wx.request({
       url: serverUrl + '/video/showAll?page=' + page,
       method: "post",
